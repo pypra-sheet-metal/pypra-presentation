@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Pypra Presentation</title>
+  <title>Google Slides Presentation</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <!-- Link to the favicon -->
   <link rel="icon" type="image/png" href="pypra logo negro cuadro.png">
@@ -43,9 +43,8 @@
       gap: 10px; /* Space between buttons */
     }
 
-    #fullscreenButton,
-    #downloadButton,
-    #websiteButton {
+    #fullscreenButton, #downloadButton, #websiteButton {
+      color: black;
       padding: 10px 20px;
       background-color: rgba(255, 255, 255, 0.5);
       border: none;
@@ -72,12 +71,15 @@
 
   <script>
     function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
+      const iframe = document.getElementById('presentationIframe');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
       }
     }
 
