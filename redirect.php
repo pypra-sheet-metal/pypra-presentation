@@ -5,7 +5,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Construct the redirection URL with the 'mobile' and 'id' parameters
-    $redirectUrl = "http://192.168.100.90/gafetes/empleados.php?mobile&id=" . urlencode($id);
+    $redirectUrl = "http://192.168.100.208/gafetes/empleados.php?mobile&id=" . urlencode($id);
 
     // Redirect to the constructed URL
     header("Location: " . $redirectUrl);
